@@ -1,156 +1,125 @@
-# Resume Skeleton for Grav
+# ![](https://avatars1.githubusercontent.com/u/8237355?v=2&s=50) Grav
 
-![Resume](assets/readme_1.png)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/cfd20465-d0f8-4a0a-8444-467f5b5f16ad/mini.png)](https://insight.sensiolabs.com/projects/cfd20465-d0f8-4a0a-8444-467f5b5f16ad) [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/getgrav/grav?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/getgrav/grav.svg?branch=develop)](https://travis-ci.org/getgrav/grav)
 
-Resume by [Fernando Báez](https://www.behance.net/gallery/FREE-Resume-Template/15677411) is a Grav implementation of free PSD resume theme.
+Grav is a **Fast**, **Simple**, and **Flexible**, file-based Web-platform.  There is **Zero** installation required.  Just extract the ZIP archive, and you are already up and running.  It follows similar principles to other flat-file CMS platforms, but has a different design philosophy than most. Grav comes with a powerful **Package Management System** to allow for simple installation and upgrading of plugins and themes, as well as simple updating of Grav itself.
 
-# Features
+The underlying architecture of Grav is designed to use well-established and _best-in-class_ technologies to ensure that Grav is simple to use and easy to extend. Some of these key technologies include:
 
-* Extraordinary resume theme, designed by [Fernando Báez](https://www.behance.net/gallery/FREE-Resume-Template/15677411)
-* Based on Foundation framework
-* Two-Column approach
-* Specialities layout with custom icons and descriptions
-* Design Skills layout with percentage grid
-* Language Skills layout with automatic pie charts
-* Education history special layout
-* Experience layout
-* Recognitions layout with SVG ribbon
-* Hobbies & Interests layout with custom icons and descriptions
-* Foundation Icon Fonts 3 (around 283 icons included)
-* Animate.css support in layouts. You can animate each separate element.
-* Fully responsive. Designed with mobile first approach.
+* [Twig Templating](http://twig.sensiolabs.org/): for powerful control of the user interface
+* [Markdown](http://en.wikipedia.org/wiki/Markdown): for easy content creation
+* [YAML](http://yaml.org): for simple configuration
+* [Parsedown](http://parsedown.org/): for fast Markdown and Markdown Extra support
+* [Doctrine Cache](http://doctrine-orm.readthedocs.io/projects/doctrine-orm/en/latest/reference/caching.html): layer for performance
+* [Pimple Dependency Injection Container](http://pimple.sensiolabs.org/): for extensibility and maintainability
+* [Symfony Event Dispatcher](http://symfony.com/doc/current/components/event_dispatcher/introduction.html): for plugin event handling
+* [Symfony Console](http://symfony.com/doc/current/components/console/introduction.html): for CLI interface
+* [Gregwar Image Library](https://github.com/Gregwar/Image): for dynamic image manipulation
 
-## Basic Setup for a new Grav site
+# Requirements
 
-The simplest way to install Resume theme for Grav is to download and install the Resume Skeleton package:
+- PHP 5.5.9 or higher. Check the [required modules list](http://learn.getgrav.org/basics/requirements#php-requirements)
+- Check the [Apache](http://learn.getgrav.org/basics/requirements#apache-requirements) or [IIS](http://learn.getgrav.org/basics/requirements#iis-requirements) requirements
 
-1. [Download Resume Skeleton](http://getgrav.org/downloads/skeletons#extras)
-2. Simply unzip the package into your web root folder.
-3. Point your browser at the folder, job done!
+# QuickStart
 
-**TIP:** Check out the [general Grav installation instructions](http://learn.getgrav.org/basics/installation) for more details on this process.
+These are the options to get Grav:
 
----
+### Downloading a Grav Package
 
-## Existing Grav site
+You can download a **ready-built** package from the [Downloads page on http://getgrav.org](http://getgrav.org/downloads)
 
-It is possible to install just the theme, but page content will need to reference the [Resume theme](https://github.com/getgrav/grav-theme-resume)'s supported templates.  It is strongly advised to at least install the Resume Skeleton package to see the theme's capabilities in action.
+### With Composer
 
-To install  **just** the theme:
+You can create a new project with the latest **stable** Grav release with the following command:
 
 ```
-$ bin/gpm install resume
+$ composer create-project getgrav/grav ~/webroot/grav
 ```
 
-# Layouts Configuration
+### From GitHub
 
-Resume theme includes few creative layout templates. This layouts will help you to create perfect resume and to find a dream job :) Below, is a brief description of most important layouts, it's options and values. 
+1. Clone the Grav repository from [https://github.com/getgrav/grav]() to a folder in the webroot of your server, e.g. `~/webroot/grav`. Launch a **terminal** or **console** and navigate to the webroot folder:
+   ```
+   $ cd ~/webroot
+   $ git clone https://github.com/getgrav/grav.git
+   ```
 
-## Header
+2. Install the **plugin** and **theme dependencies** by using the [Grav CLI application](http://learn.getgrav.org/advanced/grav-cli) `bin/grav`:
+   ```
+   $ cd ~/webroot/grav
+   $ bin/grav install
+   ```
 
-Header settings are located inside your [skeleton](https://github.com/getgrav/grav-skeleton-resume-site) in  **config/site.yaml**. This file contains your basic contact informations. This content will be displayed in theme header. 
+Check out the [install procedures](http://learn.getgrav.org/basics/installation) for more information.
 
-## Specialities
+# Adding Functionality
 
-Specialities layout is designed to showcase your most important talents. It contains large icon inside ellipse and description. Example of specialities layout is located inside your [skeleton](https://github.com/getgrav/grav-skeleton-resume-site) in **pages/left/my-specialities/special.md**. 
+You can download [plugins](http://getgrav.org/downloads/plugins) or [themes](http://getgrav.org/downloads/themes) manually from the appropriate tab on the [Downloads page on http://getgrav.org](http://getgrav.org/downloads), but the preferred solution is to use the [Grav Package Manager](http://learn.getgrav.org/advanced/grav-gpm) or `GPM`:
 
-```markdown
-- icon: lightbulb
-  text: Logo Design
-  animation: fadeInDown
+```
+$ bin/gpm index
 ```
 
-* **icon** - select icon from around 300 included font icons. Icon list is available [here](http://zurb.com/playground/foundation-icon-fonts-3).
-* **text** - description of your speciality.
-* **animation** - you can animate each element. Check available animations [here](https://daneden.github.io/animate.css/).
+This will display all the available plugins and then you can install one or more with:
 
-## Skills
-
-Skills layout is designed to showcase your most important skills. To check example page, go to [skeleton](https://github.com/getgrav/grav-skeleton-resume-site) and open: **pages/left/design-skills/skills.md**. 
-
-```markdown
-- name: Adobe Photoshop
-  level: 8
 ```
-* **name** - your skill name
-* **level** - skill level from 1-8. For example if you specify **5** that means theme will display 5 dark circles and 3 circles will be greyed out. 
-
-
-## Language skills - pie charts
-Language skills layout was made to easily display percentage data like language skills and other.
-Example language skills page is located in [skeleton](https://github.com/getgrav/grav-skeleton-resume-site), in: **pages/left/language-skills/langskills.md**. 
-
-```markdown
-- name: Spanish
-  level_name: Mother Language
-  level: 100
-```
-* **name** - your pie chart name 
-* **level_name** - pie chart description
-* **level** - percentage to display, ie: if you set that field to 50 then half of pie chart will be dark and half greyed out.
-* **animation** - you can animate each element. Check available animations [here](https://daneden.github.io/animate.css/).
-
-## Education
-This layout is designed to present your education history. Example page is located in [skeleton](https://github.com/getgrav/grav-skeleton-resume-site), in: **pages/right/education/education.md**
-
-```markdown
-- date: From September 2010 to September 2013.
-  topic: Industrial Design.
-  school: Universidad Antonio de Nebrija. Madrid.
+$ bin/gpm install <plugin/theme>
 ```
 
-* **date** - describe time when you were studying
-* **topic** - provide description of your education
-* **school** - provide place of your education
+# Updating
 
-## Experience
+To update Grav you should use the [Grav Package Manager](http://learn.getgrav.org/advanced/grav-gpm) or `GPM`:
 
-Experience layout is designed to showcase your work experience. It's created with two columns approach. One for year, one for description. Example page is located in [skeleton](https://github.com/getgrav/grav-skeleton-resume-site), in: **pages/right/experience/experience.md**
-
-```markdown
-- date: From 2013 to 2014
-  role: Art Director.
-  company: Distrito 01 (d01 .es)
-  years: 2
-  animation: fadeIn
-``` 
-* **date** - provide date
-* **role** - your role in company
-* **company** - company 
-* **years** - years to showcase in first column with enlarged font
-* **animation** - you can animate each element. Check available animations [here](https://daneden.github.io/animate.css/).
-
-## Recognitions
-
-Recognitions layout is designed to showcase your awards and recognitions. On left there is SVG ribbon with achieved place and amount of finalists. On the right, informations about contest. Example page is located in [skeleton](https://github.com/getgrav/grav-skeleton-resume-site), in: **pages/right/recognitions/recognitions.md**
-
-```markdown
-- title: Remus Logo Design.
-  desc: Internal contest. One of the three finalists.
-  place: Universidad Antonio de Nebrija. Madrid
-  position: 1-3
-  animation: fadeIn
-```    
-* **title** - contest title
-* **desc** - contest description
-* **place** - place where contest took place
-* **position** - achieved position
-* **animation** - you can animate each element. Check available animations [here](https://daneden.github.io/animate.css/).
-
-## Hobbies and Interests
-
-Interests layout is designed to show your hobbies and interests. It's approach is simple. Circle with icon and description. Example page is located in [skeleton](https://github.com/getgrav/grav-skeleton-resume-site), in: **pages/right/hobbies-and-interests/interests.md**
-
-```markdown
-- icon: camera
-  activity: Photography
-  animation: fadeIn
+```
+$ bin/gpm selfupgrade
 ```
 
-* **icon** - select icon from around 300 bundled font icons. List is available  [here](http://zurb.com/playground/foundation-icon-fonts-3).
-* **activity** - icon description
-* **animation** - you can animate each element. Check available animations [here](https://daneden.github.io/animate.css/).
+To update plugins and themes:
 
-## Footer
-Footer and it's content is located inside **partials** directory. File name is **footer.html.twig**.
+```
+$ bin/gpm update
+```
 
+
+# Contributing
+We appreciate any contribution to Grav, whether it is related to bugs, grammar, or simply a suggestion or improvement.
+However, we ask that any contributions follow our simple guidelines in order to be properly received.
+
+All our projects follow the [GitFlow branching model][gitflow-model], from development to release. If you are not familiar with it, there are several guides and tutorials to make you understand what it is about.
+
+You will probably want to get started by installing [this very good collection of git extensions][gitflow-extensions].
+
+What you mainly want to know is that:
+
+- All the main activity happens in the `develop` branch. Any pull request should be addressed only to that branch. We will not consider pull requests made to the `master`.
+- It's very well appreciated, and highly suggested, to start a new feature whenever you want to make changes or add functionalities. It will make it much easier for us to just checkout your feature branch and test it, before merging it into `develop`
+
+# Getting Started
+
+* [What is Grav?](http://learn.getgrav.org/basics/what-is-grav)
+* [Install](http://learn.getgrav.org/basics/installation) Grav in few seconds
+* Understand the [Configuration](http://learn.getgrav.org/basics/grav-configuration)
+* Take a peek at our available free [Skeletons](http://getgrav.org/downloads/skeletons)
+* If you have questions, jump on our [Gitter Room](https://gitter.im/getgrav/grav)!
+* Have fun!
+
+# Exploring More
+
+* Have a look at our [Basic Tutorial](http://learn.getgrav.org/basics/basic-tutorial)
+* Dive into more [advanced](http://learn.getgrav.org/advanced) functions
+
+# License
+
+See [LICENSE](LICENSE.txt)
+
+
+[gitflow-model]: http://nvie.com/posts/a-successful-git-branching-model/
+[gitflow-extensions]: https://github.com/nvie/gitflow
+
+# Running Tests
+
+First install the dev dependencies by running `composer update` from the Grav root.
+Then `composer test` will run the Unit Tests, which should be always executed successfully on any site.
+
+You can also run a single unit test file, e.g. `composer test tests/unit/Grav/Common/AssetsTest.php`
